@@ -92,6 +92,7 @@ a {
   padding: 1rem;
   overflow: hidden;
   transition: height var(--speed) ease;
+  z-index: 999;
 
   .menu {
     width: 100%;

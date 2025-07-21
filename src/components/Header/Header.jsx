@@ -51,10 +51,16 @@ function NavItem(props) {
 function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
+
   const dropdownRef = useRef(null);
+  const mainRef = useRef(null);
+  const settingsRef = useRef(null);
+  const animalsRef = useRef(null);
 
   useEffect(() => {
-    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
+    if (mainRef.current) {
+      setMenuHeight(mainRef.current.offsetHeight);
+    }
   }, []);
 
   function calcHeight(el) {
@@ -74,25 +80,29 @@ function DropdownMenu() {
 
   return (
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
-
+      
       <CSSTransition
         in={activeMenu === 'main'}
         timeout={500}
         classNames="menu-primary"
         unmountOnExit
-        onEnter={calcHeight}>
-        <div className="menu">
+        onEnter={calcHeight}
+        nodeRef={mainRef}
+      >
+        <div className="menu" ref={mainRef}>
           <DropdownItem>My Profile</DropdownItem>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
-            goToMenu="settings">
+            goToMenu="settings"
+          >
             Settings
           </DropdownItem>
           <DropdownItem
             leftIcon="🦧"
             rightIcon={<ChevronIcon />}
-            goToMenu="animals">
+            goToMenu="animals"
+          >
             Animals
           </DropdownItem>
         </div>
@@ -103,8 +113,10 @@ function DropdownMenu() {
         timeout={500}
         classNames="menu-secondary"
         unmountOnExit
-        onEnter={calcHeight}>
-        <div className="menu">
+        onEnter={calcHeight}
+        nodeRef={settingsRef}
+      >
+        <div className="menu" ref={settingsRef}>
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
             <h2>My Tutorial</h2>
           </DropdownItem>
@@ -120,8 +132,10 @@ function DropdownMenu() {
         timeout={500}
         classNames="menu-secondary"
         unmountOnExit
-        onEnter={calcHeight}>
-        <div className="menu">
+        onEnter={calcHeight}
+        nodeRef={animalsRef}
+      >
+        <div className="menu" ref={animalsRef}>
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
             <h2>Animals</h2>
           </DropdownItem>
@@ -134,5 +148,6 @@ function DropdownMenu() {
     </div>
   );
 }
+
 
 export default Header;
