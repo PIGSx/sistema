@@ -90,7 +90,7 @@ function DropdownMenu() {
         nodeRef={mainRef}
       >
         <div className="menu" ref={mainRef}>
-          <DropdownItem>My Profile</DropdownItem>
+          <DropdownItem>perfil</DropdownItem>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
@@ -103,7 +103,7 @@ function DropdownMenu() {
             rightIcon={<ChevronIcon />}
             goToMenu="animals"
           >
-            Animals
+            pigs
           </DropdownItem>
         </div>
       </CSSTransition>
@@ -118,7 +118,7 @@ function DropdownMenu() {
       >
         <div className="menu" ref={settingsRef}>
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>My Tutorial</h2>
+            <h2>teste</h2>
           </DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>HTML</DropdownItem>
           <DropdownItem leftIcon={<BoltIcon />}>CSS</DropdownItem>
@@ -137,7 +137,7 @@ function DropdownMenu() {
       >
         <div className="menu" ref={animalsRef}>
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>Animals</h2>
+            <h2>teste</h2>
           </DropdownItem>
           <DropdownItem leftIcon="🦘">Kangaroo</DropdownItem>
           <DropdownItem leftIcon="🐸">Frog</DropdownItem>
