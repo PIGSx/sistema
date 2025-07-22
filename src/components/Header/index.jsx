@@ -12,13 +12,13 @@ import { ReactComponent as BoltIcon } from '../../assets/icons/bolt.svg';
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
+import { Link } from 'react-router-dom';
+
 const Header = () => {
   return (
     <Navbar>
-      <NavItem icon={<PlusIcon />} />
       <NavItem icon={<BellIcon />} />
       <NavItem icon={<MessengerIcon />} />
-
       <NavItem icon={<CaretIcon />}>
         <DropdownMenu />
       </NavItem>
@@ -94,22 +94,22 @@ function DropdownMenu() {
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
-            goToMenu="settings"
+            goToMenu="pendentes"
           >
-            Settings
+            Pendentes
           </DropdownItem>
           <DropdownItem
-            leftIcon="🦧"
+            leftIcon="📊"
             rightIcon={<ChevronIcon />}
-            goToMenu="animals"
+            goToMenu="dash"
           >
-            pigs
+            Dashboards
           </DropdownItem>
         </div>
       </CSSTransition>
 
       <CSSTransition
-        in={activeMenu === 'settings'}
+        in={activeMenu === 'pendentes'}
         timeout={500}
         classNames="menu-secondary"
         unmountOnExit
@@ -118,17 +118,17 @@ function DropdownMenu() {
       >
         <div className="menu" ref={settingsRef}>
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>teste</h2>
+            <h2>Logins</h2>
           </DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>HTML</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>CSS</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>JavaScript</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>Awesome!</DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}><Link to="/renan">Renan</Link></DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}><Link to="/juliana">Juliana</Link></DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}><Link to="/vanderlei">Vanderlei</Link></DropdownItem>
+          <DropdownItem leftIcon={<BoltIcon />}><Link to="/gilvan">Gilvan</Link></DropdownItem>
         </div>
       </CSSTransition>
 
       <CSSTransition
-        in={activeMenu === 'animals'}
+        in={activeMenu === 'dash'}
         timeout={500}
         classNames="menu-secondary"
         unmountOnExit
@@ -137,12 +137,12 @@ function DropdownMenu() {
       >
         <div className="menu" ref={animalsRef}>
           <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>teste</h2>
+            <h2>Dash</h2>
           </DropdownItem>
-          <DropdownItem leftIcon="🦘">Kangaroo</DropdownItem>
-          <DropdownItem leftIcon="🐸">Frog</DropdownItem>
-          <DropdownItem leftIcon="🦋">Horse?</DropdownItem>
-          <DropdownItem leftIcon="🦔">Hedgehog</DropdownItem>
+          <DropdownItem leftIcon="☢️"><Link to="/geral">Geral</Link></DropdownItem>
+          <DropdownItem leftIcon="🌫️"><Link to="/hidro">Hidrometros</Link></DropdownItem>
+          <DropdownItem leftIcon="⛔"><Link to="/pendentes">Pendentes</Link></DropdownItem>
+          <DropdownItem leftIcon="🏁"><Link to="/rastreador">Rastreador</Link></DropdownItem>
         </div>
       </CSSTransition>
     </div>
