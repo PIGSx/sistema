@@ -7,14 +7,13 @@ import Header from "../components/Header";
 
 export default function RoutsPage() {
   return (
-<BrowserRouter>
-
-    <Header />
-    <Routes>
-        <Route path="/" element={<Home />} />
+    <BrowserRouter>
+      
+      <Routes>
+          <Route path="/" element={<><Header /><Home /></>} />
         <Route path="/login" element={<Login />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </BrowserRouter>
   );
 }

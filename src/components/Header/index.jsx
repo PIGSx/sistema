@@ -90,7 +90,7 @@ function DropdownMenu() {
         nodeRef={mainRef}
       >
         <div className="menu" ref={mainRef}>
-          <DropdownItem>perfil</DropdownItem>
+          <DropdownItem><Link to="/login">perfil</Link></DropdownItem>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
